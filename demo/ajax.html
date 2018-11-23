@@ -108,6 +108,12 @@ hui('#btn6').click(function(){
 	);
 });
 hui('#btn7').click(function(){
+	/*
+	后端代码示例 php 版本
+	$data = file_get_contents("php://input");
+	$data = json_decode($data);
+	json_encode($data);
+	*/
 	hui.ajax({
 		url  : 'http://hoa.hcoder.net/index.php?m=postJson',
 		type : 'POST',
@@ -122,12 +128,14 @@ hui('#btn7').click(function(){
 		ContentType : "application/json",
 		success : function(res){
 			console.log(res);
+			console.log(res.name);
 			hui.toast("请观察控制台");
 		},
 		error : function(e){
 			console.log(JSON.stringify(e));
 			hui.iconToast('读取消息失败', 'warn');
-		}
+		},
+		backType : "JSON"
 	});
 });
 </script>
