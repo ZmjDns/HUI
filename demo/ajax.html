@@ -21,6 +21,7 @@
 		<button type="button" class="hui-button hui-button-large" id="btn4" style="margin-top:15px;">简化的 POST</button>
 		<button type="button" class="hui-button hui-button-large" id="btn5" style="margin-top:15px;">GET JSON</button>
 		<button type="button" class="hui-button hui-button-large" id="btn6" style="margin-top:15px;">POST JSON</button>
+		<button type="button" class="hui-button hui-button-large" id="btn7" style="margin-top:15px;">POST 数据形式为JSON</button>
 	</div>
 </div>
 <script type="text/javascript" src="../js/hui.js" charset="UTF-8"></script>
@@ -92,6 +93,7 @@ hui('#btn5').click(function(){
 		}
 	);
 });
+
 hui('#btn6').click(function(){
 	hui.postJSON(
 		'http://hoa.hcoder.net/index.php',
@@ -104,6 +106,29 @@ hui('#btn6').click(function(){
 			hui.iconToast('读取消息失败', 'warn');
 		}
 	);
+});
+hui('#btn7').click(function(){
+	hui.ajax({
+		url  : 'http://hoa.hcoder.net/index.php?m=postJson',
+		type : 'POST',
+		data : {
+			//json形式的数据
+			name : "hcoder",
+        	age  : 22,
+        	sex  : "男"
+		},
+		beforeSend : function(){hui.loading();},
+		complete   : function(){hui.closeLoading();},
+		ContentType : "application/json",
+		success : function(res){
+			console.log(res);
+			hui.toast("请观察控制台");
+		},
+		error : function(e){
+			console.log(JSON.stringify(e));
+			hui.iconToast('读取消息失败', 'warn');
+		}
+	});
 });
 </script>
 </body>

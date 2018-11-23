@@ -468,7 +468,10 @@ var hui = (function(selector){
 			if(sets.ContentType == 'application/x-www-form-urlencoded'){
 				for(var k in sets.data){pd += encodeURIComponent(k)+'='+encodeURIComponent(sets.data[k])+'&';}
 				pd = pd.substr(0, pd.length - 1);
-			}else{
+			}else if(sets.ContentType == 'application/json'){
+				pd = JSON.stringify(sets.data);
+			}
+			else{
 				pd = sets.data;
 			}
 			xhr.setRequestHeader('Content-Type', sets.ContentType);
