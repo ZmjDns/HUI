@@ -20,10 +20,10 @@
 </div>
 <script type="text/javascript" src="../js/hui.js"></script>
 <script type="text/javascript">
-var meuns = ['我的订单', '我的消息', '我的收藏', '退出登录'];
+var menus = ['我的订单', '我的消息', '我的收藏', '退出登录'];
 var cancel = '关闭菜单';
 hui('#hui-header-menu').click(function(){
-    hui.actionSheet(meuns, cancel, function(e){
+    hui.actionSheet(menus, cancel, function(e){
         console.log(e.index);
         hui.toast(e.innerHTML);
     });

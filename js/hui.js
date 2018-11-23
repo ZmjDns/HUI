@@ -637,7 +637,7 @@ var hui = (function(selector){
 			huiActionSheet = document.getElementById('hui-action-sheet');
 		}
 		var actionSheets = '<ul>';
-		for(var i = 0; i < menus.length; i++){actionSheets += '<li huiASId="'+i+'">'+meuns[i]+'</li>';}
+		for(var i = 0; i < menus.length; i++){actionSheets += '<li huiASId="'+i+'">'+menus[i]+'</li>';}
 		huiActionSheet.innerHTML = actionSheets + '<li id="hui-action-sheet-cancel" huiASId="-1">'+cancel+'</li></ul>';
 		hui.mask.removeEventListener('click', hui.actionSheetClose);
 		hui.mask.addEventListener('click',hui.actionSheetClose);
